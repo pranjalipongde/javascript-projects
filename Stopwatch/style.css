@@ -1,0 +1,52 @@
+body {
+    background: #FBFACD;
+    font-family: "Alata";
+    display: grid;
+    height: 100%;
+}
+
+.wrapper {
+    width: 400px;
+    margin: 30px auto;
+    color: #7F669D;
+    text-align: center;
+}
+
+h2,h3 {
+    font-family: "Alata";
+    font-weight: 500;
+    font-size: 2.8em;
+    text-transform: uppercase;
+    color: #7F669D;
+}
+
+#seconds,#tens {
+    font-size: 2em;
+}
+
+button {
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 25px;
+    -khtml-border-radius: 5px;
+    background: #DEBACE;
+    color: #7F669D;
+    border: solid 1px #DEBACE;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    padding: 18px 10px;
+    width: 180px;
+    margin: 10px;
+    outline: none;
+    font-family: "Alata";
+}
+
+button:hover {
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    background: #BA94D1;
+    border: solid 1px #BA94D1;
+    color: #7F669D;
+}
