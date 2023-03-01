@@ -1,34 +1,34 @@
-var direction;
-var tilesNum = 225;
-var tilesPerRow = Math.sqrt(tilesNum);
-var rowStartLeft = new Array();
-var rowStartTop = new Array();
-var rowEndBottom = new Array();
-var rowEndRight = new Array();
-var emptyTiles = new Array();
-var body = [3, 2, 1];
-var moving;
-var fruitGenerator;
-var powerGenerator;
-var gameDiv = document.getElementsByClassName('game')[0];
-var boxDimensions = (100 / tilesPerRow).toFixed(3);
-var restartButton = document.getElementById('restart_game');
-var scoreSpan = document.getElementsByClassName('score')[0];
-var score = 0;
-var speed = 0.030;
+let direction;
+let tilesNum = 225;
+let tilesPerRow = Math.sqrt(tilesNum);
+let rowStartLeft = new Array();
+let rowStartTop = new Array();
+let rowEndBottom = new Array();
+let rowEndRight = new Array();
+let emptyTiles = new Array();
+let body = [3, 2, 1];
+let moving;
+let fruitGenerator;
+let powerGenerator;
+let gameDiv = document.getElementsByClassName('game')[0];
+let boxDimensions = (100 / tilesPerRow).toFixed(3);
+let restartButton = document.getElementById('restart_game');
+let scoreSpan = document.getElementsByClassName('score')[0];
+let score = 0;
+let speed = 0.030;
 
 restartButton.addEventListener("click", function () {
     restartGame();
 }, false);
 
 function createGrid() {
-    for (var i = 1; i <= tilesNum; i++) {
+    for (let i = 1; i <= tilesNum; i++) {
         gameDiv.innerHTML = gameDiv.innerHTML + '<div class="tile" data-tile="' + i + '" style="width:' + boxDimensions + '%; height:' + boxDimensions + '%"></div>';
     }
 }
 
 function createBody() {
-    for (var i = 1; i <= body.length; i++) {
+    for (let i = 1; i <= body.length; i++) {
         if (i == 3) {
             document.querySelector('[data-tile="' + i + '"]').classList.add("head", "body");
         } else if (i == 1 || i == 2) {
@@ -38,22 +38,22 @@ function createBody() {
 }
 
 // Array consisting of upmost left boxes
-for (var i = 1; i <= tilesNum; i += tilesPerRow) {
+for (let i = 1; i <= tilesNum; i += tilesPerRow) {
     rowStartLeft.push(i);
 }
 
 // Array consisting of upmost right boxes
-for (var i = tilesPerRow; i <= tilesNum; i += tilesPerRow) {
+for (let i = tilesPerRow; i <= tilesNum; i += tilesPerRow) {
     rowEndRight.push(i);
 }
 
 // Array consisting of upmost top boxes
-for (var i = 1; i <= tilesPerRow; i += 1) {
+for (let i = 1; i <= tilesPerRow; i += 1) {
     rowStartTop.push(i);
 }
 
 // Array consisting of upmost bottom boxes
-for (var i = (tilesNum - tilesPerRow) + 1; i <= tilesNum; i += 1) {
+for (let i = (tilesNum - tilesPerRow) + 1; i <= tilesNum; i += 1) {
     rowEndBottom.push(i);
 }
 
@@ -90,7 +90,7 @@ function control(e) {
 }
 
 function changeDirection(d) {
-    var directionDeciderNum,
+    let directionDeciderNum,
         directionArrayInit,
         directionArrayOf;
     switch (d) {
@@ -120,15 +120,15 @@ function changeDirection(d) {
 
     moving = setInterval(function () {
         direction = d;
-        var head = document.getElementsByClassName('head')[0];
-        var nextTileNum = directionArrayInit.indexOf(parseInt(head.dataset.tile, 10)) > -1 ? directionArrayOf[directionArrayInit.indexOf(parseInt(head.dataset.tile, 10))] : parseInt(head.dataset.tile, 10) + directionDeciderNum;
+        let head = document.getElementsByClassName('head')[0];
+        let nextTileNum = directionArrayInit.indexOf(parseInt(head.dataset.tile, 10)) > -1 ? directionArrayOf[directionArrayInit.indexOf(parseInt(head.dataset.tile, 10))] : parseInt(head.dataset.tile, 10) + directionDeciderNum;
         if (body.indexOf(nextTileNum) > -1) {
             scoreSpan.innerHTML = +score + ". GAME OVER";
             restartGame();
         } else {
-            var nextTile = document.querySelector('[data-tile ="' + nextTileNum + '"]');
+            let nextTile = document.querySelector('[data-tile ="' + nextTileNum + '"]');
 
-            var lastTile = document.querySelector('[data-tile ="' + body[body.length - 1] + '"]');
+            let lastTile = document.querySelector('[data-tile ="' + body[body.length - 1] + '"]');
             body.unshift(nextTileNum);
 
             nextTile.classList.add("head", "body");
@@ -155,8 +155,8 @@ function changeDirection(d) {
 }
 
 function generateFruit() {
-    var rand;
-    var fruit = document.getElementsByClassName('fruit')[0];
+    let rand;
+    let fruit = document.getElementsByClassName('fruit')[0];
     if (fruit) {
         fruit.classList.remove('fruit');
     }
