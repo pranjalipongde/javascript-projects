@@ -4,13 +4,25 @@
 // F(n) = F(n-1)+F(n-2), for n > 1
 
 // input n= 3 --->> output : 2
-var fibo = function (n) {
-  const arr = [0, 1];
+// var fibo = function (n) {
+//   const arr = [0, 1];
 
-  for (let i = 2; i <= n; i++) {
-    arr.push(arr[i - 1] + arr[i - 2]);
-  }
-  return arr[n];
+//   for (let i = 2; i <= n; i++) {
+//     arr.push(arr[i - 1] + arr[i - 2]);
+//   }
+//   return arr[n];
+// };
+
+// fibo(7);
+
+// using recursion -  function which calls itself repeatedly
+const fibo = function (n) {
+  if (n <= 1) return n;
+
+  return fibo(n - 1) + fibo(n - 2);
 };
 
-fibo(7);
+console.log(fibo(5));
+// n=3 = > fibo(3-1)+fibo(3-2) => fibo(2)+fibo(1) => 1+1 = 2
+// fibo(2) = 1 + 0 = 1
+

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jalan Technology Task</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Car Service Station</h1>
+      <div class="form-container">
+        <form>
+          <div>
+            <label for="car-type">Type of Car:</label>
+            <select id="car-type" name="car-type">
+              <option value="hatchback">Hatchback</option>
+              <option value="sedan">Sedan</option>
+              <option value="suv">SUV</option>
+            </select>
+          </div>
+          <div>
+            <label for="service-codes">Service Codes:</label>
+            <input
+              type="text"
+              id="service-codes"
+              name="service-codes"
+              placeholder="Enter Service Codes separated by commas"
+            />
+          </div>
+          <button type="button" onclick="generateBill()">Generate Bill</button>
+        </form>
+      </div>
+      <div class="bill-container">
+        <h2>Bill</h2>
+        <table id="bill-table">
+          <tr>
+            <th>Service Name</th>
+            <th>Price</th>
+          </tr>
+        </table>
+        <div id="total-container">
+          <p>Total Bill: ₹<span id="total-price">0</span></p>
+          <p id="complimentary">Complimentary Cleaning Included</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
