@@ -4,6 +4,7 @@
 // F(n) = F(n-1)+F(n-2), for n > 1
 
 // input n= 3 --->> output : 2
+
 // var fibo = function (n) {
 //   const arr = [0, 1];
 
@@ -22,7 +23,6 @@ const fibo = function (n) {
   return fibo(n - 1) + fibo(n - 2);
 };
 
-console.log(fibo(5));
+console.log(fibo(10));
 // n=3 = > fibo(3-1)+fibo(3-2) => fibo(2)+fibo(1) => 1+1 = 2
 // fibo(2) = 1 + 0 = 1
-

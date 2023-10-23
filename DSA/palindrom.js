@@ -4,10 +4,13 @@
 // input : y = 20  ----->>>> output > false
 
 const isPalindrome = function (x) {
+  // + operator simply comvert the string into a number
+  // return x === +x.toString().split("").reverse().join("");
 
+  // optimised solution
   return x < 0 ? false : x === +x.toString().split("").reverse().join("");
 };
-const result = isPalindrome(121);
+const result = isPalindrome(233);
 console.log(result);
 
-// 121  --->> "121" --->> ["1", "2", "1"] --->> ["1", "2", "1"] --->> 121
+// 121  --->>{toString} - "121" --->>{split} -["1", "2", "1"] --->>{reverse} ["1", "2", "1"] --->>{join} 121
