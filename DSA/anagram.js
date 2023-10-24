@@ -20,6 +20,7 @@
 
 // 2nd approach
 const isAnagram = function (s, t) {
+  // if length is not same then return false(not anagram)
   if (s.length !== t.length) return false;
 
   let obj1 = {}; // { "a": 3, "n": 1, "g": 1, "r": 1, "m": 1 }
